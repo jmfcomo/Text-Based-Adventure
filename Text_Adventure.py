@@ -1,4 +1,5 @@
 # Area Descriptions  x_z_y format  n denotes negative
+# This are displayed when an area is entered by being printed to the console
 0_0_0des = """Path
     It is a cool and sunny day in autumn.
     The breeze is gentle, but fiere in the same way, the clouds scarce.
@@ -37,7 +38,7 @@
 
 
 # Move Mechanics [x, z, y]
-
+# These define the directions into an [x, z, y] system
 # Movement definitions
 northmove = [0, 0, 1]
 eastmove = [1, 0, 0]
@@ -48,7 +49,7 @@ downmove = [0, -1, 0]
 location = [0, 0, 0]
 
 # function for changing current location
-
+# Reads user input to change coordiats according to Move Mechanics
 def move(direction):
     if direction == "N" or "n" or "north" or "North":
         location += [x + y for x, y in zip(location, northmove)]
@@ -69,7 +70,12 @@ def move(direction):
 
 
 # Location Description defining
-
+# This part is very unpolished, and need complete renovation
+# Infinite loop which asks for user input, 
+# changes coordinate to new location,
+# and prints description for that area
+# except is for areas without a description
+# Line 81 is completly made-up, and very incorrect
 def des(location):
     try:
         des = (x + "_" + z + "_" + z for x, y, z in location)
@@ -85,6 +91,7 @@ def moving():
     print(des)
 
 # Moving gameplay
+#This is the infinite loop that runs the above defined moving function
 
 win = False
 while(win is False):
