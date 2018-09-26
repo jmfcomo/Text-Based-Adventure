@@ -53,18 +53,18 @@ location = [0, 0, 0]
 
 
 def move(direction):
-    if direction == "N" or "n" or "north" or "North":
-        location += [x + y for x, y in zip(location, northmove)]
-    elif direction == "E" or "e" or "east" or "East":
-        location += [x + y for x, y in zip(location, eastmove)]
-    elif direction == "S" or "s" or "south" or "South":
-        location += [x + y for x, y in zip(location, southmove)]
-    elif direction == "W" or "w" or "west" or "West":
-        location += [x + y for x, y in zip(location, westmove)]
-    elif direction == "U" or "u" or "up" or "Down":
-        location += [x + y for x, y in zip(location, move)]
-    elif direction == "D" or "d" or "down" or "South":
-        location += [x + y for x, y in zip(location, move)]
+    if direction == "N" or "n":
+        location = [x + y for x, y in zip(location, northmove)]
+    elif direction == "E" or "e":
+        location = [x + y for x, y in zip(location, eastmove)]
+    elif direction == "S" or "s":
+        location = [x + y for x, y in zip(location, southmove)]
+    elif direction == "W" or "w":
+        location = [x + y for x, y in zip(location, westmove)]
+    elif direction == "U" or "u":
+        location = [x + y for x, y in zip(location, move)]
+    elif direction == "D" or "d":
+        location = [x + y for x, y in zip(location, move)]
     else:
         print("I don't know the direction: " + direction + """.
         Try using a cardinal direction such as N,
@@ -81,13 +81,18 @@ def move(direction):
 
 
 def des(location):
-    try:
-        des = ("des" + x + "_" + z + "_" + z for x, y, z in location)
-    except:
-        print("""This area is currently unavaliable.
-        Sorry for the inconvinience.
-        Current location is: """ + string(location) + ".")
-
+	if location == [0, 0, 0]:
+	    print des0_0_0
+    elif location == [1, 0, 0]:
+		print des1_0_0
+	elif location == [0, 0, 1]:
+		print des0_0_1
+	elif location == [-1, 0, 0]:
+		print desn1_0_0	
+    elif location == [0, 0, -0]:
+		print des1_0_n0
+	else:
+	    print("This location is not currently avaliable")
 # Location testing
 
 
